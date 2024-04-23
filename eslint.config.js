@@ -8,13 +8,13 @@ export default [
         rules: {
             // override/add rules settings here, such as:
             'vue/no-unused-vars': 'error',
-            "vue/html-indent": ["error", "tab", {
-                "attribute": 1,
-                "baseIndent": 2,
-                "closeBracket": 0,
-                "alignAttributesVertically": true,
-                "ignores": []
-            }]
+            // "vue/html-indent": ["error", "tab", {
+            //     "attribute": 1,
+            //     "baseIndent": 1,
+            //     "closeBracket": 0,
+            //     "alignAttributesVertically": true,
+            //     "ignores": []
+            // }]
         }
     }
 ]
