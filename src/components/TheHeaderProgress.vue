@@ -1,5 +1,5 @@
 <script setup>
-import {CheckCircleIcon} from "@heroicons/vue/24/solid/index.js";
+import { CheckCircleIcon } from '@heroicons/vue/24/solid/index.js'
 </script>
 
 <template>
