@@ -1,5 +1,8 @@
+<script setup>
+import {PAGE_TIMELINE} from "../constans.js";
+</script>
 <template>
-  <a href="#">
+  <a :href="`#${PAGE_TIMELINE}`">
     <img
       src="../assets/logo.png"
       alt="Logo"

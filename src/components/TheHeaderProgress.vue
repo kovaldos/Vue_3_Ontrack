@@ -1,10 +1,11 @@
 <script setup>
 import { CheckCircleIcon } from '@heroicons/vue/24/solid/index.js'
+import {PAGE_PROGRESS} from "../constans.js";
 </script>
 
 <template>
   <a
-    href="#"
+    :href="`#${PAGE_PROGRESS}`"
     class="text-sm"
   >
     <div
