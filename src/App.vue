@@ -6,17 +6,9 @@ import TheActivities from './pages/TheActivities.vue'
 import TheProgress from './pages/TheProgress.vue'
 import { PAGE_ACTIVITIES, PAGE_PROGRESS, PAGE_TIMELINE } from './constans.js'
 import { ref } from 'vue'
+import {normalizeHash} from "./functions.js";
 
 const currentPage = ref(normalizeHash())
-
-function normalizeHash() {
-    const hash = window.location.hash.slice(1)
-    if (Object.keys([PAGE_ACTIVITIES, PAGE_PROGRESS, PAGE_TIMELINE]).includes(hash)) {
-        return hash
-    }
-    window.location.hash = PAGE_TIMELINE
-    return PAGE_TIMELINE
-}
 
 function goTo(page) {
   currentPage.value = page;
