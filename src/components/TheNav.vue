@@ -1,29 +1,17 @@
 <script setup>
-import {
-    ChartBarIcon,
-    ClockIcon,
-    ListBulletIcon,
-} from '@heroicons/vue/24/outline/index.js'
 import NavItem from './NavItem.vue'
-import {ref} from "vue";
-import {PAGE_TIMELINE, PAGE_ACTIVITIES, PAGE_PROGRESS} from "../constans";
-
+import {PAGE_ACTIVITIES, PAGE_PROGRESS, PAGE_TIMELINE} from "../constans.js";
+import {ChartBarIcon, ClockIcon, ListBulletIcon} from "@heroicons/vue/24/outline/index.js";
 const navItems = {
-    [PAGE_TIMELINE]: ClockIcon,
-    [PAGE_ACTIVITIES]: ListBulletIcon,
-    [PAGE_PROGRESS]: ChartBarIcon,
+  [PAGE_TIMELINE]: ClockIcon,
+  [PAGE_ACTIVITIES]: ListBulletIcon,
+  [PAGE_PROGRESS]: ChartBarIcon,
 }
 
-const currentPage = ref(normalizeHash());
+// eslint-disable-next-line vue/require-prop-types
+defineProps(['currentPage']);
 
-function normalizeHash() {
-  const hash = window.location.hash.slice(1)
-  if(Object.keys(navItems).includes(hash)) {
-    return hash;
-  }
-  window.location.hash = PAGE_TIMELINE;
-  return PAGE_TIMELINE;
-}
+const emit = defineEmits(['navigate']);
 
 </script>
 
@@ -35,7 +23,7 @@ function normalizeHash() {
         :key="page"
         :href="`#${page}`"
         :class="{'bg-gray-200 pointer-events-none': page === currentPage}"
-        @click="currentPage = page"
+        @click="emit('navigate', page)"
       >
         <component
           :is="icon"
