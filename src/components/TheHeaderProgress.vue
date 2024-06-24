@@ -1,6 +1,6 @@
 <script setup>
 import { CheckCircleIcon } from '@heroicons/vue/24/solid/index'
-import {PAGE_PROGRESS} from "../constans";
+import {PAGE_PROGRESS} from '../constants';
 </script>
 
 <template>
@@ -9,7 +9,7 @@ import {PAGE_PROGRESS} from "../constans";
     class="text-sm"
   >
     <div
-      v-if="true"
+      v-if="false"
       class="flex items-center gap-1"
     >
       Day complete

@@ -4,13 +4,13 @@ import TheNav from './components/TheNav.vue'
 import TheTimeline from './pages/TheTimeline.vue'
 import TheActivities from './pages/TheActivities.vue'
 import TheProgress from './pages/TheProgress.vue'
-import { PAGE_ACTIVITIES, PAGE_PROGRESS, PAGE_TIMELINE } from './constans'
+import { PAGE_ACTIVITIES, PAGE_PROGRESS, PAGE_TIMELINE } from './constants'
 import { ref } from 'vue'
-import {generateTimelineItems, normalizeHash} from "./functions";
+import {generateTimelineItems, normalizePageHash} from './functions';
 
 
 const timelineItems = generateTimelineItems();
-const currentPage = ref(normalizeHash())
+const currentPage = ref(normalizePageHash())
 
 function goTo(page) {
   currentPage.value = page;

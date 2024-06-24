@@ -1,6 +1,6 @@
 <script setup>
 import NavItem from './NavItem.vue'
-import {NAV_ITEMS} from "../constans";
+import {NAV_ITEMS} from '../constants';
 
 // eslint-disable-next-line vue/require-prop-types
 defineProps(['currentPage']);
