@@ -3,9 +3,9 @@ import {
   PAGE_ACTIVITIES,
   PAGE_PROGRESS,
   PAGE_TIMELINE,
-} from './constans'
+} from './constants'
 
-export function normalizeHash() {
+export function normalizePageHash() {
   const hash = window.location.hash.slice(1)
   if (
       Object.keys([PAGE_ACTIVITIES, PAGE_PROGRESS, PAGE_TIMELINE]).includes(

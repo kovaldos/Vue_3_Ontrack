@@ -1,5 +1,5 @@
 <script setup>
-import {PAGE_TIMELINE} from "../constans.js";
+import {PAGE_TIMELINE} from '../constants';
 </script>
 <template>
   <a :href="`#${PAGE_TIMELINE}`">

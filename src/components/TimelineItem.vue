@@ -1,8 +1,10 @@
 <script setup>
 import { XMarkIcon } from '@heroicons/vue/24/outline'
+import BaseSelect from './BaseSelect.vue'
+import {ref} from "vue";
 
 // eslint-disable-next-line vue/require-prop-types
-const props = defineProps(['timelineItem']);
+const props = defineProps(['timelineItem'])
 
 const hourLinkClasses = [
     'absolute -top-4 left-1/2 -translate-x-1/2 rounded px-2 font-mono text-lg',
@@ -12,10 +14,12 @@ const hourLinkClasses = [
 ]
 
 const options = [
-  {value: 1,label: 'Coding'},
-  {value: 2,label: 'Reading'},
-  {value: 3,label: 'Training'},
+    { value: 1, label: 'Coding' },
+    { value: 2, label: 'Reading' },
+    { value: 3, label: 'Training' },
 ]
+
+const selectedActivityId = 3;
 </script>
 
 <template>
@@ -26,30 +30,11 @@ const options = [
       href="#"
       :class="hourLinkClasses"
     > {{ timelineItem.hour }}:00 </a>
-    <div class="flex gap-2">
-      <button class="rounded bg-gray-100 p-3 enabled:hover:bg-gray-200 disabled:cursor-not-allowed disabled:opacity-50">
-        <XMarkIcon class="h-8" />
-      </button>
-      <select
-        id=""
-        name=""
-        class="w-full truncate rounded bg-gray-100 px-2 py-1 text-2xl"
-      >
-        <option
-          selected
-          disabled
-          value=""
-        >
-          Rest
-        </option>
-        <option
-          v-for="{ value, label } in options"
-          :key="value"
-          :value="value"
-        >
-          {{ label }}
-        </option>
-      </select>
-    </div>
+
+    <BaseSelect
+      :options="options"
+      placeholder="Rest"
+      :selected="selectedActivityId"
+    />
   </li>
 </template>
