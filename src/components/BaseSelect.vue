@@ -1,9 +1,21 @@
 <script setup>
-  import BaseButton from "./BaseButton.vue";
-  import {XMarkIcon} from "@heroicons/vue/24/outline/index.js";
+import BaseButton from './BaseButton.vue'
+import { XMarkIcon } from '@heroicons/vue/24/outline/index.js'
 
-  // eslint-disable-next-line vue/require-prop-types
-  defineProps(['options', 'placeholder', 'selected']);
+defineProps({
+    selected: {
+      default: 0,
+      type: Number,
+    },
+    options: {
+     required: true,
+     type: Array,
+    },
+    placeholder: {
+      required: true,
+      type: String,
+    },
+})
 </script>
 
 <template>

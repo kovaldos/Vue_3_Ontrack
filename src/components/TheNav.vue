@@ -2,8 +2,12 @@
 import NavItem from './NavItem.vue'
 import {NAV_ITEMS} from '../constants';
 
-// eslint-disable-next-line vue/require-prop-types
-defineProps(['currentPage']);
+defineProps({
+  currentPage: {
+    required: true,
+    type: String,
+  }
+});
 
 const emit = defineEmits(['navigate']);
 
