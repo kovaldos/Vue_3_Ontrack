@@ -11,7 +11,9 @@ defineProps({
     },
 })
 
-const emit = defineEmits(['navigate'])
+const emit = defineEmits({
+    navigate: isPageValid,
+})
 </script>
 
 <template>
@@ -26,7 +28,10 @@ const emit = defineEmits(['navigate'])
                 }"
                 @click="emit('navigate', page)"
             >
-                <component :is="icon" class="h-6 w-6" /> {{ page }}
+                <component
+                    :is="icon"
+                    class="h-6 w-6"
+                /> {{ page }}
             </NavItem>
         </ul>
     </nav>
