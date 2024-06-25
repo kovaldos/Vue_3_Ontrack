@@ -1,18 +1,12 @@
 <script setup>
 import BaseSelect from './BaseSelect.vue'
-import { HOURS_IN_DAY } from '../constants'
+import { isTimelineITemValid } from '../validators'
 
 const props = defineProps({
     timelineItem: {
         required: true,
         type: Object,
-        validator: ({ hour }) => {
-            return (
-                typeof hour === 'number' &&
-                hour >= 0 &&
-                hour <= HOURS_IN_DAY
-            )
-        },
+        validator: isTimelineITemValid,
     },
 })
 
@@ -36,12 +30,7 @@ const selectedActivityId = 0
     <li
         class="relative flex flex-col gap-2 border-t border-gray-200 px-4 py-10"
     >
-        <a
-            href="#"
-            :class="hourLinkClasses"
-        >
-            {{ timelineItem.hour }}:00
-        </a>
+        <a href="#" :class="hourLinkClasses"> {{ timelineItem.hour }}:00 </a>
 
         <BaseSelect
             :options="options"
