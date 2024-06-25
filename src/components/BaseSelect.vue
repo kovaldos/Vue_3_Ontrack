@@ -1,44 +1,50 @@
 <script setup>
 import BaseButton from './BaseButton.vue'
-import { XMarkIcon } from '@heroicons/vue/24/outline/index.js'
+import { XMarkIcon } from '@heroicons/vue/24/outline/index'
 
 defineProps({
     selected: {
-      default: 0,
-      type: Number,
+        default: 0,
+        type: Number,
     },
     options: {
-     required: true,
-     type: Array,
+        required: true,
+        type: Array,
+        validator: (options) => {
+            return options.every(
+                ({ value, label }) =>
+                    typeof value === 'number' && typeof label === 'string'
+            )
+        },
     },
     placeholder: {
-      required: true,
-      type: String,
+        required: true,
+        type: String,
     },
 })
 </script>
 
 <template>
-  <div class="flex gap-2">
-    <BaseButton>
-      <XMarkIcon class="h-8" />
-    </BaseButton>
-    <select class="w-full truncate rounded bg-gray-100 px-2 py-1 text-2xl">
-      <option
-        selected
-        disabled
-        value=""
-      >
-        Rest
-      </option>
-      <option
-        v-for="{ value, label } in options"
-        :key="value"
-        :value="value"
-        :selected="value === selected"
-      >
-        {{ label }}
-      </option>
-    </select>
-  </div>
+    <div class="flex gap-2">
+        <BaseButton>
+            <XMarkIcon class="h-8" />
+        </BaseButton>
+        <select class="w-full truncate rounded bg-gray-100 px-2 py-1 text-2xl">
+            <option
+                selected
+                disabled
+                value=""
+            >
+                Rest
+            </option>
+            <option
+                v-for="{ value, label } in options"
+                :key="value"
+                :value="value"
+                :selected="value === selected"
+            >
+                {{ label }}
+            </option>
+        </select>
+    </div>
 </template>
