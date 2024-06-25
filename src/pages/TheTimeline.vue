@@ -1,8 +1,12 @@
 <script setup>
 import TimelineItem from "../components/TimelineItem.vue";
 
-// eslint-disable-next-line vue/require-prop-types
-defineProps(['timelineItems'])
+defineProps({
+  timelineItems: {
+    required: true,
+    type: Array,
+  }
+})
 </script>
 
 <template>
