@@ -17,7 +17,7 @@ function goTo(page) {
 </script>
 
 <template>
-    <TheHeader @navigate="goTo($event)" />
+    <TheH      eader @navigate="goTo($event)" />
     <main class="flex flex-grow flex-col">
         <TheTimeline
             v-show="currentPage === PAGE_TIMELINE"
