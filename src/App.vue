@@ -9,6 +9,9 @@ import { ref } from 'vue'
 import { generateTimelineItems, normalizePageHash } from './functions'
 
 const timelineItems = generateTimelineItems()
+
+const activities = ['coding', 'reading', 'training']
+
 const currentPage = ref(normalizePageHash())
 
 function goTo(page) {
@@ -23,7 +26,10 @@ function goTo(page) {
             v-show="currentPage === PAGE_TIMELINE"
             :timeline-items="timelineItems"
         />
-        <TheActivities v-show="currentPage === PAGE_ACTIVITIES" />
+        <TheActivities
+            v-show="currentPage === PAGE_ACTIVITIES"
+            :activities="activities"
+        />
         <TheProgress v-show="currentPage === PAGE_PROGRESS" />
     </main>
     <TheNav
