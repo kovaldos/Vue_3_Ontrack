@@ -9,7 +9,15 @@ export function validateTimelineItems(timelineItems) {
 }
 
 export function isTimelineItemValid({ hour }) {
-    isHourValid(hour)
+    return isHourValid(hour)
+}
+
+export function validateActivities(activities) {
+    return activities.every(isActivityValid)
+}
+
+export function isActivityValid(activity) {
+    return isNotEmptyString(activity)
 }
 
 export function validateSelectOptions(options) {
@@ -26,6 +34,10 @@ export function isNumberOrNull(value) {
 
 export function isHourValid(hour) {
     return isNumber(hour) && isBetween(hour, MIDNIGHT_HOUR, HOURS_IN_DAY - 1)
+}
+
+function isNotEmptyString(value) {
+    return isString(value) && value.length > 0
 }
 
 function isSelectOptionValid({ value, label }) {
