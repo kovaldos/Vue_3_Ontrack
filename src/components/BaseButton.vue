@@ -1,4 +1,5 @@
 <script>
+// Script без setup позволяет вызвать код только один раз при монтировании компонента
 import { BUTTON_TYPE_DANGER, BUTTON_TYPE_NEUTRAL } from '../constants.js'
 
 const typeClasses = {

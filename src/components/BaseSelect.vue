@@ -37,7 +37,7 @@ const isNotSelected = computed(() => isUndefinedOrNull(props.selected))
             <XMarkIcon class="h-8" />
         </BaseButton>
         <select
-            class="w-full truncate rounded bg-gray-100 px-2 py-1 text-2xl"
+            class="w-full truncate rounded bg-gray-100 px-2 py-1 text-2xl capitalize"
             @change="emit('select', +$event.target.value)"
         >
             <option
