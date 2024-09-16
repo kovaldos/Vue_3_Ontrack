@@ -23,7 +23,7 @@ const secondsToComplete = ref(15)
             <BaseButton :type="BUTTON_TYPE_DANGER">
                 <TrashIcon class="h-8" />
             </BaseButton>
-            <span class="truncate text-xl first-letter:uppercase">
+            <span class="truncate text-xl capitalize">
                 {{ activity }}
             </span>
         </div>
