@@ -33,6 +33,10 @@ export function validateSelectOptions(options) {
     return options.every(isSelectOptionValid)
 }
 
+export function isUndefined(value) {
+    return value === undefined
+}
+
 export function isUndefinedOrNull(value) {
     return isUndefined(value) || isNull(value)
 }
@@ -59,10 +63,6 @@ function isBetween(value, start, end) {
 
 function isNull(value) {
     return value === null
-}
-
-function isUndefined(value) {
-    return value === undefined
 }
 
 function isNumber(value) {
