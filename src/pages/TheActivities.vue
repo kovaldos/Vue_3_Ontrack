@@ -2,7 +2,7 @@
 import ActivityItem from '../components/ActivityItem.vue'
 import { isActivityValid, validateActivities } from '../validators'
 
-import TheActivityForm from "../components/TheActivityForm.vue";
+import TheActivityForm from '../components/TheActivityForm.vue'
 
 defineProps({
     activities: {
@@ -16,7 +16,6 @@ const emit = defineEmits({
     createActivity: isActivityValid,
     deleteActivity: isActivityValid,
 })
-
 </script>
 
 <template>
