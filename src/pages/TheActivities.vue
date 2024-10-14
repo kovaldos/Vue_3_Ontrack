@@ -19,8 +19,8 @@ const emit = defineEmits({
 </script>
 
 <template>
-    <div>
-        <ul class="divide-y">
+    <div class="flex flex-grow flex-col">
+        <ul class="flex-grow divide-y">
             <ActivityItem
                 v-for="activity in activities"
                 :key="activity"
