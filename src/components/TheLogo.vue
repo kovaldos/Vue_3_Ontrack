@@ -4,7 +4,7 @@ import { PAGE_TIMELINE } from '../constants'
 <template>
     <a :href="`#${PAGE_TIMELINE}`">
         <img
-            src="../assets/logo.png"
+            src="../assets/img/logo.png"
             alt="Logo"
             class="h-9"
         >
