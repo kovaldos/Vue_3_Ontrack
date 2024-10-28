@@ -31,7 +31,7 @@ const secondsToComplete = ref(15)
                 <TrashIcon class="h-8" />
             </BaseButton>
             <span class="truncate text-xl capitalize">
-                {{ activity }}
+                {{ activity.name }}
             </span>
         </div>
         <div>
