@@ -4,7 +4,7 @@ import BaseButton from './BaseButton.vue'
 import BaseSelect from './BaseSelect.vue'
 import { ref } from 'vue'
 import { BUTTON_TYPE_DANGER, PERIOD_SELECT_OPTIONS } from '../constants'
-import {isActivityValid, isUndefined} from '../validators'
+import { isActivityValid, isUndefined } from '../validators'
 
 defineProps({
     activity: {
@@ -18,7 +18,7 @@ const emit = defineEmits({
     delete: isUndefined,
 })
 
-const secondsToComplete = ref(15)
+const secondsToComplete = ref(0)
 </script>
 
 <template>
@@ -45,5 +45,3 @@ const secondsToComplete = ref(15)
         </div>
     </li>
 </template>
-
-<style scoped></style>
