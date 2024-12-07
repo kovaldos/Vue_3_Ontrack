@@ -45,12 +45,20 @@ export function isUndefinedOrNull(value) {
     return isUndefined(value) || isNull(value)
 }
 
+export function isSelectValueValid(value) {
+    return isNumber(value) || isNull(value) ||isNotEmptyString(value)
+}
+
 export function isNumberOrNull(value) {
     return isNumber(value) || isNull(value)
 }
 
 export function isHourValid(hour) {
     return isNumber(hour) && isBetween(hour, MIDNIGHT_HOUR, HOURS_IN_DAY - 1)
+}
+
+export function isNull(value) {
+    return value === null
 }
 
 function isNotEmptyString(value) {
@@ -65,10 +73,6 @@ function isSelectOptionValid({ value, label }) {
 
 function isBetween(value, start, end) {
     return value >= start && value <= end
-}
-
-function isNull(value) {
-    return value === null
 }
 
 function isNumber(value) {

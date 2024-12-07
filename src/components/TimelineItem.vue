@@ -17,7 +17,7 @@ defineProps({
     }
 })
 
-const selectedActivityId = ref(0)
+const selectedActivityId = ref(null)
 </script>
 
 <template>
@@ -26,9 +26,9 @@ const selectedActivityId = ref(0)
     >
         <TimelineHour :hour="timelineItem.hour" />
         <BaseSelect
-            :options="activitySelectOptions"
             placeholder="Rest"
             :selected="selectedActivityId"
+            :options="activitySelectOptions"
             @select="selectedActivityId = $event"
         />
     </li>
