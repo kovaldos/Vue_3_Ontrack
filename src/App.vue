@@ -31,6 +31,11 @@ function deleteActivity(activity) {
 function createActivity(activity) {
     activities.value.push(activity)
 }
+
+function setTimelineItemActivity({ timelineItem, activity }) {
+    timelineItem.activityId = activity.id
+}
+
 </script>
 
 <template>
@@ -39,7 +44,9 @@ function createActivity(activity) {
         <TheTimeline
             v-show="currentPage === PAGE_TIMELINE"
             :timeline-items="timelineItems"
+            :activities="activities"
             :activity-select-options="activitySelectOptions"
+            @set-timeline-item-activity="setTimelineItemActivity"
         />
         <TheActivities
             v-show="currentPage === PAGE_ACTIVITIES"
