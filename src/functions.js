@@ -16,23 +16,11 @@ export function normalizePageHash() {
 }
 
 export function generateActivities() {
-    return [
-        {
-            id: generateId(),
-            name: 'Coding',
-            secondsToComplete: 0 * SECONDS_IN_HOUR,
-        },
-        {
-            id: generateId(),
-            name: 'Training',
-            secondsToComplete: 1 * SECONDS_IN_HOUR,
-        },
-        {
-            id: generateId(),
-            name: 'Reading',
-            secondsToComplete: 2 * SECONDS_IN_HOUR,
-        },
-    ]
+    return ['Coding', 'Reading', 'Training'].map((name, hour) => ({
+        id: generateId(),
+        name,
+        secondsToComplete: hour * SECONDS_IN_HOUR,
+    }))
 }
 
 export function generateId() {
