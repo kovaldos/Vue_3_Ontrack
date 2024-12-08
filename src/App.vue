@@ -26,6 +26,11 @@ function goTo(page) {
 }
 
 function deleteActivity(activity) {
+    timelineItems.forEach(timelineItem => {
+        if(timelineItem.activityId === activity.id) {
+            timelineItem.activityId = null
+        }
+    })
     activities.value.splice(activities.value.indexOf(activity), 1)
 }
 function createActivity(activity) {
