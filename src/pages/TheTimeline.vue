@@ -2,6 +2,7 @@
 import TimelineItem from '../components/TimelineItem.vue'
 import {
     isActivityValid,
+    isNull,
     isTimelineItemValid,
     validateActivities,
     validateSelectOptions,
@@ -30,7 +31,7 @@ const emit = defineEmits({
     setTimelineItemActivity({ timelineItem, activity }) {
         return [
             isTimelineItemValid(timelineItem),
-            isActivityValid(activity),
+            isNull(activity) || isActivityValid(activity),
         ].every(Boolean)
     },
 })
