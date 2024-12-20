@@ -5,7 +5,7 @@ import TheTimeline from './pages/TheTimeline.vue'
 import TheActivities from './pages/TheActivities.vue'
 import TheProgress from './pages/TheProgress.vue'
 import { PAGE_ACTIVITIES, PAGE_PROGRESS, PAGE_TIMELINE } from './constants'
-import {computed, ref} from 'vue'
+import { computed, ref, unref } from 'vue'
 import {
     generateActivities,
     generateActivitySelectOptions,
@@ -13,21 +13,23 @@ import {
     normalizePageHash,
 } from './functions'
 
-const timelineItems = generateTimelineItems()
+const timelineItems = ref(generateTimelineItems())
 
 const activities = ref(generateActivities())
 
 const currentPage = ref(normalizePageHash())
 
-const activitySelectOptions = computed(() =>    generateActivitySelectOptions(activities.value))
+const activitySelectOptions = computed(() =>
+    generateActivitySelectOptions(activities.value)
+)
 
 function goTo(page) {
     currentPage.value = page
 }
 
 function deleteActivity(activity) {
-    timelineItems.forEach(timelineItem => {
-        if(timelineItem.activityId === activity.id) {
+    unref(timelineItems).forEach((timelineItem) => {
+        if (timelineItem.activityId === activity.id) {
             timelineItem.activityId = null
         }
     })
@@ -38,9 +40,8 @@ function createActivity(activity) {
 }
 
 function setTimelineItemActivity({ timelineItem, activity }) {
-    timelineItem.activityId = activity.id
+    timelineItem.activityId = activity?.id || null
 }
-
 </script>
 
 <template>
