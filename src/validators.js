@@ -57,6 +57,10 @@ export function isHourValid(hour) {
     return isNumber(hour) && isBetween(hour, MIDNIGHT_HOUR, HOURS_IN_DAY - 1)
 }
 
+export function isNumber(value) {
+    return typeof value === 'number'
+}
+
 export function isNull(value) {
     return value === null
 }
@@ -75,9 +79,6 @@ function isBetween(value, start, end) {
     return value >= start && value <= end
 }
 
-function isNumber(value) {
-    return typeof value === 'number'
-}
 function isString(value) {
     return typeof value === 'string'
 }
