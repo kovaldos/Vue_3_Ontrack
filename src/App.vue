@@ -39,8 +39,8 @@ function createActivity(activity) {
     activities.value.push(activity)
 }
 
-function setTimelineItemActivity({ timelineItem, activity }) {
-    timelineItem.activityId = activity?.id || null
+function setTimelineItemActivity(timelineItem, activity) {
+    timelineItem.activityId = activity.id
 }
 
 function setActivitySecondsToComplete(activity, secondsToComplete) {
